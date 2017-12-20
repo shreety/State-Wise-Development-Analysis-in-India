@@ -1,0 +1,30 @@
+Sqoop export for Task1
+
+sqoop export --connect jdbc:mysql://localhost/Project --username 'root' -P --table 'ForwardSameDay' --export-dir '/user/acadgild/project/Task2output' --input-fields-terminated-by '\t' -m 1
+
+--------------------------------------------------------------------------
+Sqoop export for Task2
+
+sqoop export --connect jdbc:mysql://localhost/db1 \
+--username 'root' -P --table 'ForwardSameDay' \
+--export-dir '/user/acadgild/project/USAConsumer/ProblemStatement2/' \
+--input-fields-terminated-by '\t' \
+-m 1
+
+--------------------------------------------------------------------------
+Sqoop export for Task3
+
+sqoop export --connect jdbc:mysql://localhost/db1 \
+--username 'root' -P --table 'CompaniesWithMaxComplains' \
+--export-dir '/user/acadgild/project/USAConsumer/ProblemStatement3/' \
+--input-fields-terminated-by '\t' \
+-m 1
+
+--------------------------------------------------------------------------
+Sqoop export for Task4
+
+sqoop export --connect jdbc:mysql://localhost/db1 \
+--username 'root' -P --table 'DebtCollectionCount' \
+--export-dir '/user/acadgild/project/USAConsumer/ProblemStatement4/' \
+--input-fields-terminated-by '\t' \
+-m 1

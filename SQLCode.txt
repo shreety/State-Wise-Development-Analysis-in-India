@@ -1,0 +1,52 @@
+SQL commands for Task 1
+
+use Project;
+
+create table TimelyResponse
+(
+Response varchar(3),
+complaintCount int(8)
+);
+
+select * from TimelyResponse;
+
+
+--------------------------------------------------
+SQL commands for Task 2
+
+use db1;
+
+create table ForwardSameDay
+(
+companyName varchar(75),
+complaintCount int(6)
+);
+
+select count(*) from ForwardSameDay;
+
+---------------------------------------------------
+SQL commands for Problem Statement 3
+
+use db1;
+show tables;
+create table CompaniesWithMaxComplains
+(
+companyName varchar(75),
+complaintCount int(6)
+);
+describe CompaniesWithMaxComplains;
+select * from CompaniesWithMaxComplains;
+select count(*) from CompaniesWithMaxComplains;
+
+--------------------------------------------------
+SQL commands for Problem Statement 4
+
+use db1;
+show tables;
+create table DebtCollectionCount
+(
+productType varchar(30),
+complaintCount int(6)
+);
+describe DebtCollectionCount;
+select * from DebtCollectionCount;

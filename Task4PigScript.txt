@@ -1,0 +1,20 @@
+--Task4 pig script
+
+--Register the piggybank jar
+REGISTER /usr/local/pig/lib/piggybank.jar
+
+--define the CSVExcel sheet
+DEFINE CSVExcelStorage org.apache.pig.piggybank.storage.CSVExcelStorage;
+
+--load the data into the pig relation
+load_data = LOAD '/flume_import/' USING CSVExcelStorage(',','NO_MULTILINE','UNIX','SKIP_INPUT_HEADER');
+
+--generate columns
+GenerateRecord = FOREACH load_data GENERATE (chararray)$1 AS productType,(chararray)$0 AS dateReceived,(int)$15 AS complainID,SUBSTRING((chararray)$0, 6, 10) AS year; 
+
+
+
+FilterRecord = FILTER GenerateRecord BY productType=='Debt collection' AND year=='2015'; 
+GroupRecord = GROUP FilterRecord BY productType; 
+ResultCountRecord= FOREACH GroupRecord GENERATE group AS productType, COUNT(FilterRecord.complainID) AS complaintCount; 
+STORE Result INTO '/user/acadgild/project/Task4output'; 
